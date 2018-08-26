@@ -25,7 +25,7 @@ SECRET_KEY = 'xmo&z@u0(dfbq!w(dl_0a^f(s9ukugs%id3)i(ei=$oxg%ir80'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['18.221.173.7']
 
 
 # Application definition
@@ -41,7 +41,8 @@ INSTALLED_APPS = (
     'students',
     #'memcache_status',
     #'embed_video',
-    'rest_framework',
+    'rest_framework'
+    #'rest_framework',
 )
 
 
@@ -99,8 +100,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 #from django.core.urlresolvers import reverse_lazy
 #LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
+
+from django.urls import reverse_lazy
+LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 
 
 MEDIA_URL = '/media/'
