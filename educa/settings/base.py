@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'students',
     #'memcache_status',
-    'embed_video',
+    #'embed_video',
     'rest_framework',
 )
 
@@ -99,8 +99,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-from django.core.urlresolvers import reverse_lazy
-LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
+#from django.core.urlresolvers import reverse_lazy
+#LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 
 
 MEDIA_URL = '/media/'
