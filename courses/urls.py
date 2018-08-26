@@ -1,27 +1,35 @@
-from django.conf.urls import url, include
-from . import views
+"""educa URL Configuration
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from courses.views import CourseListView
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
-    url(r'^mine/$', views.ManageCourseListView.as_view(), name='manage_course_list'),
-    url(r'^create/$', views.CourseCreateView.as_view(), name='course_create'),
-    url(r'^(?P<pk>\d+)/edit/$', views.CourseUpdateView.as_view(), name='course_edit'),
-    url(r'^(?P<pk>\d+)/delete/$', views.CourseDeleteView.as_view(), name='course_delete'),
-    url(r'^(?P<pk>\d+)/module/$', views.CourseModuleUpdateView.as_view(), name='course_module_update'),
-
-    url(r'^module/(?P<module_id>\d+)/content/(?P<model_name>\w+)/create/$',
-            views.ContentCreateUpdateView.as_view(), name='module_content_create'),
-    url(r'^module/(?P<module_id>\d+)/content/(?P<model_name>\w+)/(?P<id>\d+)/$',
-            views.ContentCreateUpdateView.as_view(), name='module_content_update'),
-    url(r'^content/(?P<id>\d+)/delete/$', views.ContentDeleteView.as_view(), name='module_content_delete'),
-    url(r'^module/(?P<module_id>\d+)/$', views.ModuleContentListView.as_view(), name='module_content_list'),
-
-    url(r'^module/order/$', views.ModuleOrderView.as_view(), name='module_order'),
-    url(r'^content/order/$', views.ContentOrderView.as_view(), name='content_order'),
-
-    url(r'^$', views.CourseListView.as_view(), name='course_list'),
-    url(r'^subject/(?P<subject>[\w-]+)/$', views.CourseListView.as_view(), name='course_list_subject'),
-    url(r'^(?P<slug>[\w-]+)/$', views.CourseDetailView.as_view(), name='course_detail'),
-
-    url(r'^api/', include('courses.api.urls', namespace='api')),
+    path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
+    path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('admin/', admin.site.urls),
+    path('course/', include('courses.urls')),
+    path('', CourseListView.as_view(), name='course_list'),
+    path('students/', include('students.urls')),
+    #path('api/', include('courses.api.urls', namespace='api')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+document_root=settings.MEDIA_ROOT)
