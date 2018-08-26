@@ -229,4 +229,4 @@ class CourseDetailView(DetailView):
                         self).get_context_data(**kwargs)
         context['enroll_form'] = CourseEnrollForm(
                                    initial={'course':self.object})
-return context
+        return context
