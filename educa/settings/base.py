@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'students',
     #'memcache_status',
     #'embed_video',
-    'rest_framework'
+    #'rest_framework'
     #'rest_framework',
 )
 
