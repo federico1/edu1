@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-#from django.urls import reverse
+from django.urls import reverse
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(os.path.join(__file__, os.pardir))))
