@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 import os
 from django.urls import reverse
 
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(os.path.join(__file__, os.pardir))))
 
 # Quick-start development settings - unsuitable for production
@@ -105,7 +106,7 @@ STATIC_URL = '/static/'
 
 #from django.core.urlresolvers import reverse_lazy
 #LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
-
+from django.core.urlresolvers import reverse
 from django.urls import reverse_lazy
 LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 
