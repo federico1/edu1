@@ -61,7 +61,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     #'courses.middleware.SubdomainCourseMiddleware',
-)
+]
 
 ROOT_URLCONF = 'educa.urls'
 
