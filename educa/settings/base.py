@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'students',
-    #'memcache_status',
+    'memcache_status',
     #'embed_video',
     #'rest_framework'
     #'rest_framework',
