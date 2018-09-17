@@ -43,14 +43,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'students',
    # 'memcache_status',
-    'embed_video',
+    #'embed_video',
     #'rest_framework'
     #'rest_framework',
 )
 
 
 MIDDLEWARE = [
-    #'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     #'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     #'django.middleware.cache.FetchFromCacheMiddleware',
