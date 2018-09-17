@@ -81,7 +81,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'educa.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 
