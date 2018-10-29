@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'students',
    # 'memcache_status',
-    'embed_video',
+    #'embed_video',
     #'rest_framework'
     #'rest_framework',
 )
