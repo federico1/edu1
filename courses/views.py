@@ -1,3 +1,4 @@
+from django.views import generic
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -15,6 +16,10 @@ from .models import Subject, Course, Module, Content
 from .forms import ModuleFormSet
 from students.forms import CourseEnrollForm
 from django.core.cache import cache
+
+class HomePage(generic.TemplateView):
+    template_name = "home.html"
+
 
 
 class OwnerMixin(object):
